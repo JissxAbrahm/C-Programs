@@ -1,23 +1,22 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main() {
-    int fno, sno, *ptr1 = &fno, *ptr2 = &sno;
-
-    printf("\n\n Pointer : Find the maximum number between two numbers :\n");
+    int arr1[25], i, n;
+    printf("\n\n Pointer : Store and retrieve elements from an array :\n");
     printf("------------------------------------------------------------\n");
 
-    printf(" Input the first number : ");
-    scanf("%d", ptr1); 
-    printf(" Input the second number : ");
-    scanf("%d", ptr2); 
-
-    
-    if (*ptr1 > *ptr2) {
-        printf("\n\n %d is the maximum number.\n\n", *ptr1); 
-    } else {
-        printf("\n\n %d is the maximum number.\n\n", *ptr2); 
+    printf(" Input the number of elements to store in the array :");
+    scanf("%d", &n); 
+    printf(" Input %d number of elements in the array :\n", n);
+    for (i = 0; i < n; i++) {
+        printf(" element - %d : ", i);
+        scanf("%d", arr1 + i); 
     }
-	return 0;
+
+    printf(" The elements you entered are : \n");
+    for (i = 0; i < n; i++) {
+        printf(" element - %d : %d \n", i, *(arr1 + i)); 
+    }
+    return 0;
 }
 
