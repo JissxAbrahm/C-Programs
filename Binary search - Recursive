@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int binarySearch(int a[], int low, int high, int key)
+{
+    int mid;
+
+    if (low > high)
+    {
+        return -1;
+    }
+
+    mid = (low + high) / 2;
+
+    if (a[mid] == key)
+    {
+        return mid;
+    }
+    else if (key < a[mid])
+    {
+        return binarySearch(a, low, mid - 1, key);
+    }
+    else
+    {
+        return binarySearch(a, mid + 1, high, key);
+    }
+}
+
+int main()
+{
+    int a[] = {10, 20, 30, 40, 50, 60, 70};
+    int n = 7;
+    int key;
+    int result;
+
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    result = binarySearch(a, 0, n - 1, key);
+
+    if (result != -1)
+        printf("Element found at position %d", result + 1);
+    else
+        printf("Element not found");
+
+    return 0;
+}
